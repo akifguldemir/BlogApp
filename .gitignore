@@ -1,0 +1,17 @@
+# .NET Core
+bin/
+obj/
+
+# Visual Studio Code
+.vscode/
+
+# Visual Studio
+*.suo
+*.user
+*.sln.docstates
+
+wwwroot
+# Ignore SQLite database files
+*.db
+*.db-shm
+*.db-wal
