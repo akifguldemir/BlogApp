@@ -44,9 +44,9 @@ namespace BlogApp.Data.Concrete.EfCore
                 if(!context.Posts.Any())
                 {
                     context.Posts.AddRange(
-                        new Post { Title = "asp.net Core", Content = "Asp net core dersleri", IsActive = true, PublishedOn = DateTime.Now.AddDays(-10), Tags = context.Tags.Take(3).ToList(), UserId = 1}, 
-                         new Post { Title = "php", Content = "php dersleri", IsActive = true, PublishedOn = DateTime.Now.AddDays(-20), Tags = context.Tags.Take(2).ToList(), UserId = 1},
-                          new Post { Title = "django", Content = "django dersleri", IsActive = true, PublishedOn = DateTime.Now.AddDays(-5), Tags = context.Tags.Take(4).ToList(), UserId = 2}
+                        new Post { Title = "asp.net Core", Content = "Asp net core dersleri", IsActive = true, PublishedOn = DateTime.Now.AddDays(-10), Tags = context.Tags.Take(3).ToList(), Image = "1.jpg", UserId = 1}, 
+                         new Post { Title = "php", Content = "php dersleri", IsActive = true, PublishedOn = DateTime.Now.AddDays(-20), Tags = context.Tags.Take(2).ToList(), Image = "2.jpg", UserId = 1},
+                          new Post { Title = "django", Content = "django dersleri", IsActive = true, PublishedOn = DateTime.Now.AddDays(-5), Tags = context.Tags.Take(4).ToList(), Image = "3.jpg", UserId = 2}
                     );
                     context.SaveChanges();
                 }
