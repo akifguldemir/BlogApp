@@ -35,8 +35,8 @@ namespace BlogApp.Data.Concrete.EfCore
                 if(!context.Users.Any())
                 {
                     context.Users.AddRange(
-                        new User { UserName = "akifguldemir"},
-                        new User { UserName = "hilalguldemir"}
+                        new User { UserName = "akifguldemir", Image="p1.jpg"},
+                        new User { UserName = "hilalguldemir", Image="p2.jpg"}
                     );
                     context.SaveChanges();
                 }
@@ -44,7 +44,12 @@ namespace BlogApp.Data.Concrete.EfCore
                 if(!context.Posts.Any())
                 {
                     context.Posts.AddRange(
-                        new Post { Title = "asp.net Core", Content = "Asp net core dersleri", IsActive = true, PublishedOn = DateTime.Now.AddDays(-10), Tags = context.Tags.Take(3).ToList(), Image = "1.jpg", UserId = 1, Url ="aspnet-core"}, 
+                        new Post { Title = "asp.net Core", Content = "Asp net core dersleri", IsActive = true, PublishedOn = DateTime.Now.AddDays(-10), Tags = context.Tags.Take(3).ToList(), Image = "1.jpg", UserId = 1, Url ="aspnet-core",
+                        Comments = new List<Comment> {
+                            new Comment { Text = "İyi bir kurs", PublishedOn = new DateTime(), UserId = 1},
+                            new Comment { Text = "Çok faydalı", PublishedOn = new DateTime(), UserId = 2},
+                            }
+                        }, 
                          new Post { Title = "php", Content = "php dersleri", IsActive = true, PublishedOn = DateTime.Now.AddDays(-20), Tags = context.Tags.Take(2).ToList(), Image = "2.jpg", UserId = 1, Url ="php"},
                           new Post { Title = "django", Content = "django dersleri", IsActive = true, PublishedOn = DateTime.Now.AddDays(-5), Tags = context.Tags.Take(4).ToList(), Image = "3.jpg", UserId = 2, Url ="django"}
                     );
