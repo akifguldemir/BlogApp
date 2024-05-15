@@ -22,7 +22,7 @@ namespace BlogApp.Migrations
 
             MySqlModelBuilderExtensions.AutoIncrementColumns(modelBuilder);
 
-            modelBuilder.Entity("Entity.Comment", b =>
+            modelBuilder.Entity("BlogApp.Entity.Comment", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -51,7 +51,7 @@ namespace BlogApp.Migrations
                     b.ToTable("Comments");
                 });
 
-            modelBuilder.Entity("Entity.Post", b =>
+            modelBuilder.Entity("BlogApp.Entity.Post", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -74,6 +74,9 @@ namespace BlogApp.Migrations
                     b.Property<string>("Title")
                         .HasColumnType("longtext");
 
+                    b.Property<string>("Url")
+                        .HasColumnType("longtext");
+
                     b.Property<int>("UserId")
                         .HasColumnType("int");
 
@@ -84,7 +87,7 @@ namespace BlogApp.Migrations
                     b.ToTable("Posts");
                 });
 
-            modelBuilder.Entity("Entity.Tag", b =>
+            modelBuilder.Entity("BlogApp.Entity.Tag", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -95,12 +98,15 @@ namespace BlogApp.Migrations
                     b.Property<string>("Text")
                         .HasColumnType("longtext");
 
+                    b.Property<string>("Url")
+                        .HasColumnType("longtext");
+
                     b.HasKey("Id");
 
                     b.ToTable("Tags");
                 });
 
-            modelBuilder.Entity("Entity.User", b =>
+            modelBuilder.Entity("BlogApp.Entity.User", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -134,15 +140,15 @@ namespace BlogApp.Migrations
                     b.ToTable("PostTag");
                 });
 
-            modelBuilder.Entity("Entity.Comment", b =>
+            modelBuilder.Entity("BlogApp.Entity.Comment", b =>
                 {
-                    b.HasOne("Entity.Post", "Post")
+                    b.HasOne("BlogApp.Entity.Post", "Post")
                         .WithMany("Comments")
                         .HasForeignKey("PostId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Entity.User", "User")
+                    b.HasOne("BlogApp.Entity.User", "User")
                         .WithMany("Comments")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -153,9 +159,9 @@ namespace BlogApp.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("Entity.Post", b =>
+            modelBuilder.Entity("BlogApp.Entity.Post", b =>
                 {
-                    b.HasOne("Entity.User", "User")
+                    b.HasOne("BlogApp.Entity.User", "User")
                         .WithMany("Posts")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -166,25 +172,25 @@ namespace BlogApp.Migrations
 
             modelBuilder.Entity("PostTag", b =>
                 {
-                    b.HasOne("Entity.Post", null)
+                    b.HasOne("BlogApp.Entity.Post", null)
                         .WithMany()
                         .HasForeignKey("PostId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Entity.Tag", null)
+                    b.HasOne("BlogApp.Entity.Tag", null)
                         .WithMany()
                         .HasForeignKey("TagsId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("Entity.Post", b =>
+            modelBuilder.Entity("BlogApp.Entity.Post", b =>
                 {
                     b.Navigation("Comments");
                 });
 
-            modelBuilder.Entity("Entity.User", b =>
+            modelBuilder.Entity("BlogApp.Entity.User", b =>
                 {
                     b.Navigation("Comments");
 

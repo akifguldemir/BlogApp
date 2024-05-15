@@ -23,11 +23,11 @@ namespace BlogApp.Data.Concrete.EfCore
                 if(!context.Tags.Any())
                 {
                     context.Tags.AddRange(
-                        new Tag { Text = "web programlama"},
-                        new Tag { Text = "backend"},
-                        new Tag { Text = "frontend"},
-                        new Tag { Text = "fullstack"},
-                        new Tag { Text = "php"}
+                        new Tag { Text = "web programlama", Url ="web-programlama"},
+                        new Tag { Text = "backend", Url ="backend"},
+                        new Tag { Text = "frontend", Url ="frontend"},
+                        new Tag { Text = "fullstack", Url ="fullstack"},
+                        new Tag { Text = "php", Url ="php"}
                     );
                     context.SaveChanges();
                 }
@@ -44,9 +44,9 @@ namespace BlogApp.Data.Concrete.EfCore
                 if(!context.Posts.Any())
                 {
                     context.Posts.AddRange(
-                        new Post { Title = "asp.net Core", Content = "Asp net core dersleri", IsActive = true, PublishedOn = DateTime.Now.AddDays(-10), Tags = context.Tags.Take(3).ToList(), Image = "1.jpg", UserId = 1}, 
-                         new Post { Title = "php", Content = "php dersleri", IsActive = true, PublishedOn = DateTime.Now.AddDays(-20), Tags = context.Tags.Take(2).ToList(), Image = "2.jpg", UserId = 1},
-                          new Post { Title = "django", Content = "django dersleri", IsActive = true, PublishedOn = DateTime.Now.AddDays(-5), Tags = context.Tags.Take(4).ToList(), Image = "3.jpg", UserId = 2}
+                        new Post { Title = "asp.net Core", Content = "Asp net core dersleri", IsActive = true, PublishedOn = DateTime.Now.AddDays(-10), Tags = context.Tags.Take(3).ToList(), Image = "1.jpg", UserId = 1, Url ="aspnet-core"}, 
+                         new Post { Title = "php", Content = "php dersleri", IsActive = true, PublishedOn = DateTime.Now.AddDays(-20), Tags = context.Tags.Take(2).ToList(), Image = "2.jpg", UserId = 1, Url ="php"},
+                          new Post { Title = "django", Content = "django dersleri", IsActive = true, PublishedOn = DateTime.Now.AddDays(-5), Tags = context.Tags.Take(4).ToList(), Image = "3.jpg", UserId = 2, Url ="django"}
                     );
                     context.SaveChanges();
                 }
