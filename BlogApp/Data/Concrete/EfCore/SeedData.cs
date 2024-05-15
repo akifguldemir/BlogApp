@@ -46,8 +46,8 @@ namespace BlogApp.Data.Concrete.EfCore
                     context.Posts.AddRange(
                         new Post { Title = "asp.net Core", Content = "Asp net core dersleri", IsActive = true, PublishedOn = DateTime.Now.AddDays(-10), Tags = context.Tags.Take(3).ToList(), Image = "1.jpg", UserId = 1, Url ="aspnet-core",
                         Comments = new List<Comment> {
-                            new Comment { Text = "İyi bir kurs", PublishedOn = new DateTime(), UserId = 1},
-                            new Comment { Text = "Çok faydalı", PublishedOn = new DateTime(), UserId = 2},
+                            new Comment { Text = "İyi bir kurs", PublishedOn = DateTime.Now.AddDays(20), UserId = 1},
+                            new Comment { Text = "Çok faydalı", PublishedOn = DateTime.Now.AddDays(-10), UserId = 2},
                             }
                         }, 
                          new Post { Title = "php", Content = "php dersleri", IsActive = true, PublishedOn = DateTime.Now.AddDays(-20), Tags = context.Tags.Take(2).ToList(), Image = "2.jpg", UserId = 1, Url ="php"},
