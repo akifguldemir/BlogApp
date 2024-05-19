@@ -13,16 +13,14 @@ namespace BlogApp.Migrations
             migrationBuilder.AddColumn<string>(
                 name: "Url",
                 table: "Tags",
-                type: "longtext",
-                nullable: true)
-                .Annotation("MySql:CharSet", "utf8mb4");
+                type: "TEXT",
+                nullable: true);
 
             migrationBuilder.AddColumn<string>(
                 name: "Url",
                 table: "Posts",
-                type: "longtext",
-                nullable: true)
-                .Annotation("MySql:CharSet", "utf8mb4");
+                type: "TEXT",
+                nullable: true);
         }
 
         /// <inheritdoc />

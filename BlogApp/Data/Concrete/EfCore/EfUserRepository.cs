@@ -4,18 +4,18 @@ using BlogApp.Entity;
 
 namespace BlogApp.Data.Concrete
 {
-    public class EfCommentRepository : ICommentRepository
+    public class EfUserRepository : IUserRepository
     {
         private BlogContext _context;
-        public EfCommentRepository(BlogContext context)
+        public EfUserRepository(BlogContext context)
         {
             _context = context;
         }
-        public IQueryable<Comment> Comments => _context.Comments;
+        public IQueryable<User> Users => _context.Users;
 
-        public void CreateComment(Comment comment)
+        public void CreateUser(User user)
         {
-            _context.Comments.Add(comment);
+            _context.Users.Add(user);
             _context.SaveChanges();
         }
     }

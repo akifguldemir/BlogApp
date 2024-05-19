@@ -11,9 +11,9 @@ namespace BlogApp.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.AddColumn<int>(
-                name: "Colors",
+                name: "Color",
                 table: "Tags",
-                type: "int",
+                type: "INTEGER",
                 nullable: true);
         }
 
@@ -21,7 +21,7 @@ namespace BlogApp.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropColumn(
-                name: "Colors",
+                name: "Color",
                 table: "Tags");
         }
     }

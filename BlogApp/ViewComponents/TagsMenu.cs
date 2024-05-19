@@ -1,4 +1,4 @@
-using BlogApp.Data.Absract;
+using BlogApp.Data.Abstract;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
